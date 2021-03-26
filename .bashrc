@@ -50,9 +50,9 @@ function set_git_branch() {
 
   # Set the final branch string.
   if [[ ! -z "$branch" ]]; then
-	BRANCH=" ${LIGHT_BLACK}(${PURPLE}${branch}${LIGHT_BLACK})${COLOR_NONE} "
+	  BRANCH=" ${LIGHT_BLACK}(${PURPLE}${branch}${LIGHT_BLACK})${COLOR_NONE} "
   else
-	BRANCH=" "
+	  BRANCH=" "
   fi
 }
 
@@ -61,7 +61,9 @@ function set_k8s_namespace() {
 }
 
 function set_k8s_context() {
-  kubectl config current-context
+
+  kubectl config current-context 2> /dev/null
+
 }
 
 function set_k8s_prompt () {
@@ -118,3 +120,5 @@ ${PROMPT_SYMBOL} "
 
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=set_bash_prompt
+
+alias cl='clear'
